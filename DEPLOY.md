@@ -20,7 +20,7 @@ Check it with `nslookup crqr.in`; it should return `46.224.184.63`.
 
 ### 2. CloudPanel → Sites → crqr.in
 - **Settings**
-  - PHP Version: **PHP 8.4**
+  - PHP Version: **PHP 8.5**
   - Root Directory: **`crqr.in/public`**
   - Save
 - **Databases → Add Database**: name `crqr`, user `crqr`, generate a password and save it somewhere safe.
@@ -48,9 +48,9 @@ git clone git@github.com:deovrat247/crqr.git .
 ```bash
 cp .env.production.example .env
 nano .env                 # set DB_PASSWORD to the password from step 2
-php8.4 -m | grep -E "^(gd|pdo_mysql)$"   # both must be listed
-php8.4 $(command -v composer) install --no-dev --optimize-autoloader
-php8.4 artisan key:generate
+php8.5 -m | grep -E "^(gd|pdo_mysql)$"   # both must be listed
+php8.5 $(command -v composer) install --no-dev --optimize-autoloader
+php8.5 artisan key:generate
 bash deploy.sh
 ```
 Open https://crqr.in. You should see the home page; sign up and shorten a link to test.
@@ -71,5 +71,5 @@ ssh crqr@46.224.184.63 "cd ~/htdocs/crqr.in && bash deploy.sh"
 ## Troubleshooting
 - **500 error:** `tail -50 ~/htdocs/crqr.in/storage/logs/laravel-*.log`
 - **Styles missing:** `public/build` wasn't committed. Run `npm run build` locally, commit and push.
-- **Links show `http://`:** check that `APP_URL=https://crqr.in` and `APP_ENV=production`, then run `php8.4 artisan optimize`.
+- **Links show `http://`:** check that `APP_URL=https://crqr.in` and `APP_ENV=production`, then run `php8.5 artisan optimize`.
 - **Permission errors:** `chmod -R ug+rw storage bootstrap/cache`

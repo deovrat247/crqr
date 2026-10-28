@@ -3,7 +3,7 @@
 #   cd ~/htdocs/crqr.in && bash deploy.sh
 set -euo pipefail
 
-PHP="${PHP:-php8.4}"
+PHP="${PHP:-php8.5}"
 COMPOSER="$(command -v composer)"
 
 cd "$(dirname "$0")"
